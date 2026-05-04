@@ -236,70 +236,79 @@ a{
 }
 
 .service-header{
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
-.full-container{
+.full-container {
     width: min(100%, 1280px);
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
 }
-.service-container{
-    width: 100%;
-    min-width: 0;
-    padding: 1.3rem;
+
+.service-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
     border-radius: 1.5rem;
     background-color: #13124F;
-    align-items: center;
-    justify-content: center;
     animation: slidefromleft 1s ease forwards;
     opacity: 0;
 }
-.image-section{
-    border-radius: 1.5rem;
-    box-shadow: 0, 2px, 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.image-section:hover{
-    transform: scale(1.02);;
-    box-shadow: 0,4px,8px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(216, 42, 115, 0.918);
 
+.image-section {
+    flex: 0 0 140px;
+    height: 110px;
+    border-radius: 1rem;
+    overflow: hidden;
 }
-.service-image{
+
+.service-image {
     width: 100%;
-    max-width: 30rem;
-    height: auto;
-    display: block;
-    border-radius: 1.3rem;
+    height: 100%;
     object-fit: cover;
+    display: block;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
 }
-.description-section{
-    text-align: center;
-    width: 100%;
-    max-width: 30rem;
-    font-size: 1.2rem;
-    padding-top: 1rem;
+
+.service-image:hover {
+    transform: scale(1.05);
 }
-.service-description{
-    padding: 1rem;
+
+.description-section {
+    flex: 1;
+    text-align: left;
+    font-size: 1rem;
+    padding: 0;
 }
-@media (max-width:900px) {
-    .full-container{
+
+.service-description {
+    padding: 0.5rem;
+    margin: 0;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 900px) {
+    .full-container {
         grid-template-columns: 1fr;
     }
-    .description-section{
-        max-width: 100%;
-        min-height: auto;
-        font-size: 1.4rem;
+    .service-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    .service-description{
-        padding: 0.8rem;
+    .image-section {
+        flex: unset;
+        width: 100%;
+        height: 200px;
+    }
+    .description-section {
+        font-size: 1.2rem;
+        width: 100%;
     }
 }
 
